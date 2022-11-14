@@ -1,4 +1,5 @@
 .profile {
+  font-family: 'Inter';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,6 +8,14 @@
 
 @media screen and (max-width: 924px) {
   .profile {
+    margin: 0 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 924px) {
+@media screen and (max-width: 768px) {
   .profile__add-button {
     background-image: url(../../../images/Add_Button_mobile.svg);
     width: 282px;
