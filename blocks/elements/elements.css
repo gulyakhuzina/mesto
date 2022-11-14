@@ -1,18 +1,4 @@
 .elements {
   font-family: 'Inter';
-  margin: 50px auto 66px;
-}
-
-@media screen and (max-width: 924px) {
-  .elements {
-    margin-left: 27px;
-    margin-right: 27px;
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .elements {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  margin: 50px auto 0;
 }

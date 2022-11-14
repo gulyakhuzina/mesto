@@ -1,0 +1,18 @@
+.footer {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Inter';
+}
+
+@media screen and (max-width: 924px) {
+  .footer {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 644px) {
+  .footer {
+    max-width: 282px;
+  }
+}
