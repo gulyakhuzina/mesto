@@ -6,6 +6,13 @@
   line-height: 22px;
 }
 
+@media screen and (max-width: 924px) {
+  .profile__subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .profile__subtitle {
     font-size: 14px;
