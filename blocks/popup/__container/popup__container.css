@@ -5,3 +5,10 @@
   position: relative;
   color: #000;
 }
+
+@media screen and (max-width: 768px) {
+  .popup__container {
+    width: 282px;
+    height: 322px;
+  }
+}

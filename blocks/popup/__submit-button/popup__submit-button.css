@@ -10,3 +10,11 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .popup__submit-button {
+    margin-top: 15px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
