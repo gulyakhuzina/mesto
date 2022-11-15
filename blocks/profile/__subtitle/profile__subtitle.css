@@ -4,12 +4,17 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
 }
 
 @media screen and (max-width: 924px) {
   .profile__subtitle {
     font-size: 16px;
     line-height: 19px;
+    max-width: 282px;
   }
 }
 
