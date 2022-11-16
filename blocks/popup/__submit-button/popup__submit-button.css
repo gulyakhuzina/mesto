@@ -6,7 +6,7 @@
   padding-bottom: 18px;
   border: none;
   border-radius: 2px;
-  transition: all 3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .popup__submit-button:hover {
