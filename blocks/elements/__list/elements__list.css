@@ -20,5 +20,6 @@
 @media screen and (max-width: 644px) {
   .elements__list {
     max-width: 282px;
+    gap: 20px;
   }
 }

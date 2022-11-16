@@ -1,5 +1,5 @@
 .profile__title {
-  margin: 0 18px 16px 0;
+  margin: 0;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -14,7 +14,7 @@
   .profile__title {
     font-size: 30px;
     line-height: 36px;
-    max-width: 189px;
+    max-width: 220px;
   }
 }
 
@@ -22,5 +22,6 @@
   .profile__title {
     font-size: 27px;
     line-height: 33px;
+    margin-left: 26px;
   }
 }

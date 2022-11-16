@@ -14,7 +14,7 @@
   .profile__subtitle {
     font-size: 16px;
     line-height: 19px;
-    max-width: 282px;
+    max-width: 220px;
   }
 }
 
@@ -22,5 +22,6 @@
   .profile__subtitle {
     font-size: 14px;
     line-height: 17px;
+    margin-left: 26px;
   }
 }

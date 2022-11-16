@@ -8,6 +8,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
+  transition: all 3s ease;
 }
 
 .popup__close-button:hover {
@@ -19,7 +20,7 @@
   .popup__close-button {
     min-width: 20px;
     height: 20px;
-    top: -28px;
-    right: -28px;
+    top: -37px;
+    right: 0;
   }
 }
