@@ -8,11 +8,15 @@ let nameInput = formElement.querySelector('#name');
 let jobInput = formElement.querySelector('#job');
 let closeButton = popup.querySelector('.popup__close-button');
 
+function closePopup () {
+  popup.classList.remove ('popup_opened');
+}
+
 function formSubmitHandler (evt) {
   evt.preventDefault(); 
   nameProfile.textContent = nameInput.value;
   job.textContent = jobInput.value;
-  popup.classList.remove ('popup_opened');
+  closePopup ();
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -23,6 +27,4 @@ editButton.addEventListener('click', function () {
   jobInput.value = job.textContent;
 });
 
-closeButton.addEventListener('click', function () {
-  popup.classList.remove ('popup_opened');
-});
+closeButton.addEventListener('click', closePopup);
