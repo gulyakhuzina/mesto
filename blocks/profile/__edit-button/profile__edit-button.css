@@ -5,6 +5,7 @@
   background-color: #000;
   background-size: cover;
   border: none;
+  transition: opacity 0.3s ease;
 }
 
 .profile__edit-button:hover {

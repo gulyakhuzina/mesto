@@ -1,8 +1,8 @@
 .footer {
   max-width: 880px;
   width: 100%;
-  margin: 0 auto;
-  font-family: 'Inter';
+  margin: 0 auto 60px;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 @media screen and (max-width: 924px) {
@@ -14,5 +14,11 @@
 @media screen and (max-width: 644px) {
   .footer {
     max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .footer {
+    margin-bottom: 36px;
   }
 }

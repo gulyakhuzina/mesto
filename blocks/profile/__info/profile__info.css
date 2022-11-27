@@ -1,5 +1,8 @@
 .profile__info {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  row-gap: 16px;
+  column-gap: 18px;
   align-items: baseline;
   align-self: center;
   margin-left: 30px;
@@ -9,5 +12,7 @@
   .profile__info {
     margin: 26px auto 36px;
     text-align: center;
+    row-gap: 8px;
+    column-gap: 10px;
   }
 }

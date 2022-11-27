@@ -8,9 +8,19 @@
   position: absolute;
   top: -40px;
   right: -40px;
+  transition: opacity 0.3s ease;
 }
 
 .popup__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__close-button {
+    min-width: 20px;
+    height: 20px;
+    top: -37px;
+    right: 0;
+  }
 }

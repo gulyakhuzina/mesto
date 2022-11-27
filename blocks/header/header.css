@@ -1,14 +1,19 @@
 .header {
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   max-width: 880px;
-  border-bottom: 1px solid #545454;
-  height: 74px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   width: 100%;
-  margin: 0 auto;
+  margin: 45px auto 0;
+}
+
+@media screen and (max-width: 924px) {
+  .header {
+    max-width: 600px;
+  }
 }
 
 @media screen and (max-width: 568px) {
   .header {
-    height: 56px;
+    margin-top: 28px;
   }
 }
