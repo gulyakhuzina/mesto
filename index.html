@@ -25,55 +25,13 @@
     </section>
     <section class="elements">
       <ul class="elements__list">
-        <li class="element">
-          <img class="element__image" src="./images/Karachaevsk.jpg" alt="Фотография Карачаевска.">
-          <div class="element__card">
-            <h3 class="element__title">Карачаевск</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/Elbrus.jpg" alt="Фотография горы Эльбрус.">
-          <div class="element__card">
-            <h3 class="element__title">Гора Эльбрус</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/Dombai.jpg" alt="Фотография Домбая.">
-          <div class="element__card">
-            <h3 class="element__title">Домбай</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/Elbrus2.jpg" alt="Фотография горы Эльбрус.">
-          <div class="element__card">
-            <h3 class="element__title">Гора Эльбрус</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/Dombai2.jpg" alt="Фотография Домбая.">
-          <div class="element__card">
-            <h3 class="element__title">Домбай</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/Karachaevo-Cherkessiya.jpg" alt="Фотография Карачаевска.">
-          <div class="element__card">
-            <h3 class="element__title">Карачаево-Черкессия</h3>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__description">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_profile">
     <div class="popup__container">
       <form name="profile" class="popup__form">
         <h3 class="popup__title">Редактировать профиль</h3>
@@ -84,17 +42,37 @@
       <button class="popup__close-button" type="button"></button>
     </div>
   </div>
-  <div class="popup-new-img">
-    <div class="popup-new-img__container">
-      <form class="popup-new-img__form">
-        <h3 class="popup-new-img__title">Новое место</h3>
-        <input id="name" class="popup-new-img__input" value="" autofocus placeholder="Название">
-        <input id="job" class="popup-new-img__input" value="" placeholder="Ссылка на картинку">
-        <button class="popup-new-img__submit-button" type="submit">Сохранить</button>
+  <div class="popup popup_img">
+    <div class="popup__container">
+      <form name="image" class="popup__form">
+        <h3 class="popup__title">Новое место</h3>
+        <input id="title" class="popup__input" value="" autofocus placeholder="Название">
+        <input id="link" class="popup__input" value="" placeholder="Ссылка на картинку">
+        <button class="popup__submit-button" type="submit">Создать</button>
       </form>
-      <button class="popup-new-img__close-button" type="button"></button>
+      <button class="popup__close-button" type="button"></button>
     </div>
   </div>
+  <div class="popup popup_open-img">
+    <div class="popup__container-img">
+      <figure class="popup__figure">
+        <img class="popup__open-img" src="" alt="">
+        <figcaption class="popup__caption-img"></figcaption>
+      </figure>
+      <button class="popup__close-button" type="button"></button>
+    </div>
+  </div>
+  <template id="image">
+    <li class="element">
+      <img class="element__image" src="" alt="">
+      <button class="element__basket" type="button"></button>
+      <div class="element__card">
+        <h3 class="element__title"></h3>
+        <button class="element__like-button" type="button"></button>
+      </div>
+    </li>
+  </template>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

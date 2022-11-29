@@ -1,7 +1,10 @@
 .popup {
   font-family: 'Inter', Arial, sans-serif;
   position: fixed;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
   width: 100%;
   height: 100%;
   justify-content: center;
