@@ -16,7 +16,6 @@ const imageTemplate = document.querySelector('#image').content;
 const popupOpenImage = document.querySelector('.popup_open-img');
 const openImage = popupOpenImage.querySelector('.popup__open-img');
 const captionImage = popupOpenImage.querySelector('.popup__caption-img');
-
 const elementsList = document.querySelector('.elements__list');
 
 function openPopup (popupElem) {
