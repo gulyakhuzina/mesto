@@ -76,9 +76,9 @@ function viewImage (elem) {
   elem.addEventListener('click', function (evt) {
     openPopup(popupOpenImage);
     const eventTarget = evt.target;
-    openImage.src = eventTarget.parentElement.querySelector('.element__image').src;
-    openImage.alt = eventTarget.parentElement.querySelector('.element__title').textContent;
-    captionImage.textContent = eventTarget.parentElement.querySelector('.element__title').textContent;
+    openImage.src = eventTarget.closest('.element').querySelector('.element__image').src;
+    openImage.alt = eventTarget.closest('.element').querySelector('.element__title').textContent;
+    captionImage.textContent = eventTarget.closest('.element').querySelector('.element__title').textContent;
   });
 }
 
