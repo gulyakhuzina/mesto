@@ -20,19 +20,8 @@ const captionImage = popupOpenImage.querySelector('.popup__caption-img');
 const elementsList = document.querySelector('.elements__list');
 
 function openPopup (popupElem) {
-  const inputs = Array.from(popupElem.querySelectorAll('.popup__input'));
-  const button = popupElem.querySelector('.popup__submit-button');
   popupElem.classList.add ('popup_opened');
   document.addEventListener('keyup', handleKeyUp);
-  inputs.forEach((input) => {
-    if (input.value === '') {
-      button.disabled = 'disabled';
-      button.classList.add('popup__submit-button_disabled');
-    } else {
-      button.disabled = '';
-      button.classList.remove('popup__submit-button_disabled');
-    }
-  })
 }
 
 function closePopup (popupElem) {
@@ -45,14 +34,22 @@ function creatCard (link, name) {
   const elementImage = element.querySelector('.element__image');
   const likeButton = element.querySelector('.element__like-button');
   const elementTitle = element.querySelector('.element__title');
+  const deleteImage = element.querySelector('.element__basket');
 
   elementImage.src = link;
   elementImage.alt = name;
   elementTitle.textContent = name;
 
-  viewImage(elementImage);
-  deleteCard(element);
-  likeCard(likeButton);
+  elementImage.addEventListener('click', viewImage);
+
+  deleteImage.addEventListener('click', function (evt) {
+    const eventTarget = evt.target;
+    eventTarget.closest('.element').remove();
+  });
+
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('element__like-button_active');
+  });
 
   return (element);
 }
@@ -74,51 +71,24 @@ function addImage (evt) {
   evt.preventDefault(); 
   const newElement = creatCard(linkInput.value, titleInput.value);
   elementsList.prepend(newElement); 
-  formElementImage.reset();
   closePopup(popupNewImage);
+  formElementImage.reset();
 }
 
-function deleteCard (elem) {
-  const deleteImage = elem.querySelector('.element__basket');
-  deleteImage.addEventListener('click', function (evt) {
-    const eventTarget = evt.target;
-    eventTarget.closest('.element').remove();
-  });
-}
-
-function viewImage (elem) {
-  elem.addEventListener('click', function (evt) {
-    openPopup(popupOpenImage);
-    const eventTarget = evt.target;
-    openImage.src = eventTarget.closest('.element').querySelector('.element__image').src;
-    openImage.alt = eventTarget.closest('.element').querySelector('.element__title').textContent;
-    captionImage.textContent = eventTarget.closest('.element').querySelector('.element__title').textContent;
-  });
-}
-
-function likeCard (elem) {
-  elem.addEventListener('click', function () {
-    elem.classList.toggle('element__like-button_active');
-  });
+function viewImage (evt) {
+  const eventTarget = evt.target;
+  openImage.src = eventTarget.closest('.element').querySelector('.element__image').src;
+  openImage.alt = eventTarget.closest('.element').querySelector('.element__title').textContent;
+  captionImage.textContent = eventTarget.closest('.element').querySelector('.element__title').textContent;
+  openPopup(popupOpenImage);
 }
 
 const handleKeyUp = (evt) => {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
+    formElementImage.reset();
   }
-}
-
-const clearValidateError = (popupElem) => {
-  const errors = Array.from(popupElem.querySelectorAll('.popup__error'));
-  const inputs = Array.from(popupElem.querySelectorAll('.popup__input'));
-  const button = popupElem.querySelector('.popup__submit-button');
-  errors.forEach((error) => {
-    error.textContent = '';
-  })
-  inputs.forEach((input) => {
-    input.classList.remove('popup__input_type_error');
-  })
 }
 
 insertCard(initialCards);
@@ -138,7 +108,6 @@ closeButtons.forEach(function(elem) {
   elem.addEventListener('click', function() {
     closePopup(parentClass);
     formElementImage.reset();
-    clearValidateError(parentClass);
   });
 })
 
@@ -148,7 +117,6 @@ popup.forEach((elem) => {
       const openedPopup = evt.target.closest('.popup');
       closePopup(openedPopup);
       formElementImage.reset();
-      clearValidateError(openedPopup);
     }
   })
 })
