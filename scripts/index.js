@@ -28,6 +28,9 @@ function openPopup (popupElem) {
     if (input.value === '') {
       button.disabled = 'disabled';
       button.classList.add('popup__submit-button_disabled');
+    } else {
+      button.disabled = '';
+      button.classList.remove('popup__submit-button_disabled');
     }
   })
 }
