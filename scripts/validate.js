@@ -2,11 +2,9 @@ const checkValidity = (input, error, obj) => {
   error.textContent = '';
   if (input.validity.valid) {
     error.textContent = '';
-    error.classList.remove(obj.errorClass);
     input.classList.remove(obj.inputErrorClass);
   } else {
     error.textContent = input.validationMessage;
-    error.classList.add(obj.errorClass);
     input.classList.add(obj.inputErrorClass);
   }
 } 
@@ -78,5 +76,4 @@ enableValidation({
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
 });
