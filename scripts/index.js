@@ -100,6 +100,7 @@ editButton.addEventListener('click', function () {
 });
 
 addButton.addEventListener('click', function () {
+  formElementImage.reset();
   openPopup(popupNewImage);
 });
 
@@ -107,7 +108,6 @@ closeButtons.forEach(function(elem) {
   const parentClass = elem.closest('.popup');
   elem.addEventListener('click', function() {
     closePopup(parentClass);
-    formElementImage.reset();
   });
 })
 
@@ -116,7 +116,6 @@ popup.forEach((elem) => {
     if (!evt.target.closest('.popup__container') && !evt.target.closest('.popup__container-img')) {
       const openedPopup = evt.target.closest('.popup');
       closePopup(openedPopup);
-      formElementImage.reset();
     }
   })
 })
