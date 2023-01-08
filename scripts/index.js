@@ -70,25 +70,26 @@ const handleKeyUp = (evt) => {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
-    formElementImage.reset();
   }
 }
+
+const validateFormElementProfile = new FormValidator(config, formElementProfile);
+validateFormElementProfile.enableValidation();
+const validateFormElementImage = new FormValidator(config, formElementImage);
+validateFormElementImage.enableValidation();
 
 insertCard(initialCards);
 
 editButton.addEventListener('click', function () {
+  formElementProfile.reset();
   nameInput.value = nameProfile.textContent;
   jobInput.value = job.textContent;
   openPopup(popupProfile);
-  const validateFormElementProfile = new FormValidator(config, formElementProfile);
-  validateFormElementProfile.enableValidation();
 });
 
 addButton.addEventListener('click', function () {
   formElementImage.reset();
   openPopup(popupNewImage);
-  const validateFormElementImage = new FormValidator(config, formElementImage);
-  validateFormElementImage.enableValidation();
 });
 
 closeButtons.forEach(function (elem) {

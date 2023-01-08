@@ -1,11 +1,11 @@
 export class FormValidator {
-  constructor(data, formElement) {
-    this._editButton = data.editButton;
-    this._addButton = data.addButton;
-    this._inputSelector = data.inputSelector;
-    this._submitButtonSelector = data.submitButtonSelector;
-    this._inactiveButtonClass = data.inactiveButtonClass;
-    this._inputErrorClass = data.inputErrorClass;
+  constructor(validationConfig, formElement) {
+    this._editButton = validationConfig.editButton;
+    this._addButton = validationConfig.addButton;
+    this._inputSelector = validationConfig.inputSelector;
+    this._submitButtonSelector = validationConfig.submitButtonSelector;
+    this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+    this._inputErrorClass = validationConfig.inputErrorClass;
 
     this._formElement = formElement;
     this._inputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
@@ -37,16 +37,6 @@ export class FormValidator {
     }
   }
 
-  _isNullInputValue(inputElement) {
-    if (inputElement.value === '') {
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = 'disabled';
-    } else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = '';
-    }
-  }
-
   _clearValidateError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = '';
@@ -54,20 +44,16 @@ export class FormValidator {
   }
 
   _setEventListeners() {
-    const editButtonElement = document.querySelector(this._editButton);
-    const addButtonElement = document.querySelector(this._addButton);
+    this._toggleButtonState();
 
     this._inputs.forEach((inputElement) => {
-      editButtonElement.addEventListener('click', () => {
-        this._isNullInputValue(inputElement);
-        this._clearValidateError(inputElement);
+      this._formElement.addEventListener('reset', () => {
+        setTimeout(() => {
+          this._clearValidateError(inputElement);
+          this._toggleButtonState();
+        }, 0);
       });
-  
-      addButtonElement.addEventListener('click', () => {
-        this._isNullInputValue(inputElement);
-        this._clearValidateError(inputElement);
-      });
-  
+
       inputElement.addEventListener('input', () => {
         this._checkValidity(inputElement, inputElement.validationMessage);
         this._toggleButtonState();
