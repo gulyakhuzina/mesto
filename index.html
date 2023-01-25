@@ -35,10 +35,10 @@
     <div class="popup__container">
       <form name="profile" class="popup__form" novalidate>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input id="name" class="popup__input" value="" type="text" minlength="2" maxlength="40" autofocus placeholder="Ваше имя" required>
+        <input id="name" name="name" class="popup__input" value="" type="text" minlength="2" maxlength="40" autofocus placeholder="Ваше имя" required>
         <span id="name-error" class="popup__error"></span>
-        <input id="job" class="popup__input" value="" type="text" minlength="2" maxlength="200" placeholder="Ваш род деятельности" required>
-        <span id="job-error" class="popup__error"></span>
+        <input id="info" name="info" class="popup__input" value="" type="text" minlength="2" maxlength="200" placeholder="Ваш род деятельности" required>
+        <span id="info-error" class="popup__error"></span>
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-button" type="button"></button>
@@ -48,9 +48,9 @@
     <div class="popup__container">
       <form name="image" class="popup__form" novalidate>
         <h3 class="popup__title">Новое место</h3>
-        <input id="title" class="popup__input" value="" type="text" minlength="2" maxlength="30" autofocus placeholder="Название" required>
+        <input id="title" name="name" class="popup__input" value="" type="text" minlength="2" maxlength="30" autofocus placeholder="Название" required>
         <span id="title-error" class="popup__error"></span>
-        <input id="link" class="popup__input" value="" type="url" placeholder="Ссылка на картинку" required>
+        <input id="link" name="link" class="popup__input" value="" type="url" placeholder="Ссылка на картинку" required>
         <span id="link-error" class="popup__error"></span>
         <button class="popup__submit-button" type="submit">Создать</button>
       </form>
@@ -77,7 +77,6 @@
     </li>
   </template>
   <script src="./scripts/constants.js"></script>
-  <!-- <script src="./scripts/validate.js"></script> -->
   <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
