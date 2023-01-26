@@ -20,12 +20,12 @@ export class Card {
   generateCard() {
     this._element = this._getTemplate();
 
-    const elementImage = this._element.querySelector('.element__image');
-    const elementTitle = this._element.querySelector('.element__title');
+    this._cardtImage = this._element.querySelector('.element__image');
+    this._cardTitle = this._element.querySelector('.element__title');
 
-    elementImage.src = this._link;
-    elementImage.alt = this._name;
-    elementTitle.textContent = this._name;
+    this._cardtImage.src = this._link;
+    this._cardtImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
 
@@ -33,22 +33,20 @@ export class Card {
   }
 
   _setEventListeners() {
-    const buttonLike = this._element.querySelector('.element__like-button');
-    const elementImage = this._element.querySelector('.element__image');
-    const elementBasket= this._element.querySelector('.element__basket');
+    this._likeButton = this._element.querySelector('.element__like-button');
+    this._basketButton= this._element.querySelector('.element__basket');
 
-    elementImage.addEventListener('click', () => {
+    this._cardtImage.addEventListener('click', () => {
       this._handleCardClick(this._data);
     })
 
-    elementBasket.addEventListener('click', function (evt) {
+    this._basketButton.addEventListener('click', function (evt) {
       const eventTarget = evt.target;
       eventTarget.closest('.element').remove();
     });
 
-    buttonLike.addEventListener('click', function () {
-      buttonLike.classList.toggle('element__like-button_active');
+    this._likeButton.addEventListener('click', () => {
+      this._likeButton.classList.toggle('element__like-button_active');
     });
   }
 }
-

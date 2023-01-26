@@ -69,13 +69,3 @@ export class FormValidator {
     this._setEventListeners();
   }
 }
-
-export const config = ({
-  formSelector: '.popup__form',
-  editButton : '.profile__edit-button',
-  addButton : '.profile__add-button',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_disabled',
-  inputErrorClass: 'popup__input_type_error'
-});
