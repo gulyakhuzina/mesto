@@ -5,17 +5,19 @@ class Api {
     this._headers = this._options.headers;
   }
 
+  _getResponseData(res) {
+    if (!res.ok) {
+      return Promise.reject(`Ошибка: ${res.status}`); 
+    }
+    return res.json();
+  }
+
   getUserInfo() {
     return fetch(this._baseUrl + '/users/me', {
       headers: this._headers
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -29,12 +31,7 @@ class Api {
       })
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -47,12 +44,7 @@ class Api {
       })
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -61,12 +53,7 @@ class Api {
       headers: this._headers
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-  
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -76,12 +63,7 @@ class Api {
       headers: this._headers,
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -95,12 +77,7 @@ class Api {
       })
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -110,12 +87,7 @@ class Api {
       headers: this._headers
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
@@ -125,16 +97,10 @@ class Api {
       headers: this._headers
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
 
-  // другие методы работы с API
 }
 
 export const api = new Api({

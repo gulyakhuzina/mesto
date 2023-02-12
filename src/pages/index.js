@@ -3,6 +3,7 @@ import { config, nameSelector, avatarSelector, avatarButton, infoSelector, editB
   popupProfileSelector, formElementProfile, popupNewImageSelector, formElementImage, 
   popupOpenImageSelector, popupConfirmationSelector, templateSelector, cardSelector,
   popupAvatarSelector, formElementAvatar, avatar} from '../utils/constants.js';
+import { renderLoading } from '../utils/constants.js';
 import { api } from '../components/Api.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -58,15 +59,6 @@ function createCard(data) {
   return element.generateCard(myUserId);
 }
 
-function renderLoading(isLoading, defaultText, popupButton) {
-  if (isLoading) {
-    popupButton.textContent = 'Сохранение...';
-    popupButton.classList.add('popup__submit-button_disabled');
-  } else {
-    popupButton.textContent = defaultText;
-  }
-}
-
 let myUserId;
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
@@ -109,10 +101,12 @@ const popupAvatar = new PopupWithForm({
         console.log(res);
         avatar.src = res.avatar;
         popupAvatar.close();
-        renderLoading(false, defaultText, popupButton);
       })
       .catch((err) => {
         console.log(err)
+      })
+      .finally(() => {
+        renderLoading(false, defaultText, popupButton);
       })
   }
 })
@@ -128,10 +122,12 @@ const newInfoUser = new PopupWithForm({
       .then(res => {
         console.log(res);
         newInfoUser.close();
-        renderLoading(false, defaultText, popupButton);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        renderLoading(false, defaultText, popupButton);
       })
     userInfo.setUserInfo(data);
   }
@@ -146,14 +142,15 @@ const newCardCreate = new PopupWithForm({
     renderLoading(true, defaultText, popupButton);
     api.addCard(data)
       .then(res => {
-        // console.log(res);
         const newCardElement = createCard(res);
         cardList.addItem(newCardElement);
         newCardCreate.close();
-        renderLoading(false, defaultText, popupButton);
       })
       .catch((err) => {
         console.log(err)
+      })
+      .finally(() => {
+        renderLoading(false, defaultText, popupButton);
       })
   }
 });

@@ -52,6 +52,7 @@ export class Card {
 
   deleteElement() {
     this._element.remove();
+    this._element = null;
   }
 
   isLiked() {
@@ -60,17 +61,12 @@ export class Card {
   }
 
   setLikes(likesArray) {
-    this._likesCount = this._element.querySelector('.element__like-count');
-    this._likeButton = this._element.querySelector('.element__like-button');
     this._likes = likesArray;
     this._likesCount.textContent = this._likes.length;
     this._likeButton.classList.toggle('element__like-button_active');
   }
 
   _setEventListeners() {
-    this._likeButton = this._element.querySelector('.element__like-button');
-    this._basketButton= this._element.querySelector('.element__basket');
-
     this._cardtImage.addEventListener('click', () => {
       this._handleCardClick(this._data);
     })

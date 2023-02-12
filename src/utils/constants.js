@@ -31,6 +31,15 @@ const popupAvatarSelector = '.popup_avatar';
 const popupAvatarElement = document.querySelector(popupAvatarSelector);
 const formElementAvatar = popupAvatarElement.querySelector('.popup__form');
 
+export function renderLoading(isLoading, defaultText, popupButton) {
+  if (isLoading) {
+    popupButton.textContent = 'Сохранение...';
+    popupButton.classList.add('popup__submit-button_disabled');
+  } else {
+    popupButton.textContent = defaultText;
+  }
+}
+
 export {
   nameSelector, infoSelector, avatarSelector, avatarButton, editButton, 
   addButton, popupProfileSelector, formElementProfile, 
